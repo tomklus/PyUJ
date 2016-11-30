@@ -5,7 +5,7 @@ class Frac:
 
     def __init__(self, x=0, y=1):
         if y == 0:
-            raise ValueError
+            raise ValueError("not a valid fraction")
         self.x = x
         self.y = y
 

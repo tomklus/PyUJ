@@ -6,6 +6,10 @@ class TestFrac(unittest.TestCase):
     def setUp(self):
         self.zero = [0, 1]
 
+    def test_error(self):
+        with self.assertRaises(ValueError):
+            Frac(1, 0)
+
     def test_str(self):
         self.assertEqual(Frac(5,1).__str__(), "5")
         self.assertEqual(Frac(5, 2).__str__(), "5/2")
@@ -47,6 +51,9 @@ class TestFrac(unittest.TestCase):
 
     def test_neg(self):
         self.assertEqual(Frac(1, 84).__neg__(), Frac(-1,84))
+
+    def __invert__(self):
+        self.assertEquals(Frac(1, 3), Frac(3, 1))
 
     def test_float(self):
         self.assertEqual(Frac(1, 2).__float__(), 0.5)
