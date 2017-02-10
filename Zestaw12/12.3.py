@@ -1,5 +1,4 @@
 import listGenerator
-import bucketSort
 import math
 
 def swap(L, left, right):
@@ -27,7 +26,7 @@ def quicksort(L, left, right):
 
 
 def mediana_sort(L, left, right):
-    bucketSort.quicksort(L, left, right)
+    quicksort(L, left, right)
     mediana = L[len(L)/2]
     print(mediana)
 
