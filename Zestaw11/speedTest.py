@@ -1,3 +1,4 @@
+import listGenerator
 
 import listGenerator
 from listGenerator import swap
@@ -88,4 +89,49 @@ def merge(L, left, middle, right):
         else:
             L[k] = B[j]
             j += 1
+
+def timing(f):
+    def wrap(*args):
+        time1 = time.time()
+        ret = f(*args)
+        time2 = time.time()
+        print('%s function took %0.3f ms' % (f.__name__, (time2-time1)*1000.0))
+        return ret
+    return wrap
+
+@timing
+def merge(length, maxVal):
+    L = listGenerator.random_list(length, maxVal)
+    mergesort(L, L[0], L[-0])
+
+@timing
+def select(length, maxVal):
+    L = listGenerator.random_list(length, maxVal)
+    selectsort(L, L[0], L[-0])
+
+@timing
+def insert(length, maxVal):
+    L = listGenerator.random_list(length, maxVal)
+    insertsort(L, L[0], L[-0])
+
+@timing
+def quick(length, maxVal):
+    L = listGenerator.random_list(length, maxVal)
+    mergesort(L, L[0], L[-0])
+
+@timing
+def bubble(length, maxVal):
+    L = listGenerator.random_list(length, maxVal)
+    bubblesort(L, L[0], L[-0])
+
+
+for x in xrange(6):
+    N = 10**(x+2)
+    m = 10000
+    print("N = %s, zakres 0-%s" % (N, m))
+    merge(N, m)
+    select(N, m)
+    insert(N, m)
+    quick(N, m)
+    bubble(N, m)
 

@@ -43,10 +43,3 @@ def random2(size):
     L = [random.randint(0,int(math.sqrt(size))) for r in range(size)]
     return L
 
-
-print(random_list(10,50))
-print(nearly_sorted(10,50))
-print(reverse_nearly_sorted(10,50))
-print(gauss_random(10))
-print(random2(10))
-
